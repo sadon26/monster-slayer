@@ -61,16 +61,16 @@ export default {
       this.started = !this.started;
       this.widthOne = 100;
       this.widthTwo = 100;
+      this.monsterResult = [];
+      this.playerResult = [];
+      this.displayResult = false;
     },
     chakra(reducePlayer, reduceMonster) {
       this.reducePlayer = reducePlayer;
       this.reduceMonster = reduceMonster;
     },
     gameOver() {
-      this.displayResult = false;
       this.started = false;
-      this.widthOne = 100;
-      this.widthTwo = 100;
     },
     attack() {
       this.chakra(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10));
@@ -98,6 +98,7 @@ export default {
       } else {
         this.widthOne = 100;
       }
+      this.widthOne -= Math.ceil(Math.random() * 5);
     },
     giveUp() {
       this.gameOver();
