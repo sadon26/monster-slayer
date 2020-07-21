@@ -30,7 +30,7 @@
         <div class="red">
           MONSTER HITS PLAYER FOR {{ playerResult[index] }}
         </div>
-        <div class="blue" >
+        <div class="blue">
           PLAYER HITS MONSTER FOR {{ monsterResult[index] }}
         </div>
       </div>
@@ -74,9 +74,9 @@ export default {
     },
     attack() {
       this.chakra(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10));
-      this.playerResult.splice(0, 0, this.reducePlayer);
+      this.playerResult.splice(0, 1, this.reducePlayer);
       this.widthOne -= this.reducePlayer;
-      this.monsterResult.splice(0, 0, this.reduceMonster);
+      this.monsterResult.splice(0, 1, this.reduceMonster);
       this.widthTwo -= this.reduceMonster;
       this.displayResult = true;
     },
@@ -87,8 +87,8 @@ export default {
       this.widthOne -= specialHitPlayer;
       this.widthTwo -= specialHitMonster;
       this.chakra(specialHitPlayer, specialHitMonster);
-      this.playerResult.splice(0, 0, this.reducePlayer);
-      this.monsterResult.splice(0, 0, this.reduceMonster);
+      this.playerResult.splice(0, 1, this.reducePlayer);
+      this.monsterResult.splice(0, 1, this.reduceMonster);
     },
     heal() {
       if (this.widthOne < 100) {
@@ -199,18 +199,20 @@ div.monster-slayer {
     padding: 15px;
     box-sizing: border-box;
     display: block;
-    .red {
-      background: rgb(241, 124, 134);
-      padding: 5px 0;
-      color: rgb(71, 7, 13);
-      margin-bottom: 10px;
+    div {
+      .red {
+        background: rgb(241, 124, 134);
+        padding: 5px 0;
+        color: rgb(71, 7, 13);
+        margin-bottom: 10px;
+      }
+      .blue {
+        background: rgb(124, 198, 241);
+        padding: 5px 0;
+        color: rgb(26, 86, 121);
+        margin-bottom: 10px;
+      }
     }
-    .blue {
-      background: rgb(124, 198, 241);
-      padding: 5px 0;
-      color: rgb(26, 86, 121);
-      margin-bottom: 10px;
-  }
   }
 }
 </style>
