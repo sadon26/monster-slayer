@@ -74,9 +74,9 @@ export default {
     },
     attack() {
       this.chakra(Math.ceil(Math.random() * 10), Math.ceil(Math.random() * 10));
-      this.playerResult.splice(0, 1, this.reducePlayer);
+      this.playerResult.splice(0, 0, this.reducePlayer);
       this.widthOne -= this.reducePlayer;
-      this.monsterResult.splice(0, 1, this.reduceMonster);
+      this.monsterResult.splice(0, 0, this.reduceMonster);
       this.widthTwo -= this.reduceMonster;
       this.displayResult = true;
     },
@@ -87,8 +87,8 @@ export default {
       this.widthOne -= specialHitPlayer;
       this.widthTwo -= specialHitMonster;
       this.chakra(specialHitPlayer, specialHitMonster);
-      this.playerResult.splice(0, 1, this.reducePlayer);
-      this.monsterResult.splice(0, 1, this.reduceMonster);
+      this.playerResult.splice(0, 0, this.reducePlayer);
+      this.monsterResult.splice(0, 0, this.reduceMonster);
     },
     heal() {
       if (this.widthOne < 100) {
